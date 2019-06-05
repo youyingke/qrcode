@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<!--<script src="/static/js/jquery.min.js"></script>-->
+<!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
+<!--<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
+<script type="text/javascript" src="/static/1.9.1/jquery.js"></script>
+<script type="text/javascript" src="/static/jquery-ui-1.12.1/jquery-ui.js"></script>
+
+
+<script type="application/javascript">
+
+
+    //二维码打印
+
+    function printEWM(ids){
+
+
+
+        var url = '/qrPrint/printEWM.do?ids='+ids;
+
+        $('#iframePrintEWM').attr("src", url);
+
+    }
+</script>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>showQRList</title>
+
+</head>
+
+<body>
+<div id='divPrintDialog'></div>
+
+<div >
+
+    <div align="left" >
+
+        <a href="javascript:printEWM('${ids}');" class="easyui-linkbutton" iconCls="icon-printer" style="width: 95px">二维码打印</a>
+
+    </div>
+
+</div>
+
+<!--<div>-->
+
+
+    <!--<ul th:each="lm : ${showListData}">-->
+
+        <!--<li th:each="entry : ${lm}" th:text="${entry.key}" ></li>-->
+
+        <!--<li  id="printId" th:each="entry : ${lm}" th:text="${entry.value}"></li>-->
+
+    <!--</ul>-->
+
+<!--</div>-->
+
+<div>
+
+
+    <!--<c:forEach var="printID" items="${showListData}" varStatus="lis">-->
+        <tr th:each="lis : ${showListData}">
+
+        <table align="center" class="codetable"  cellpadding="0" style="float: left;border:1px solid #333333;">
+
+            <tr>
+
+                <td align="center">
+
+                    <div id="bcTarget${lis.index }">
+
+                        <!--<img src="/qrPrint/showEWMImage.do?showID=${lis.id}">-->
+
+                        <!--<img th:src="@{/qrPrint/showEWMImage.do?showID=${lis.value})}">-->
+                        <Img th:each="entry : ${lis}" th:src="@{/qrPrint/showEWMImage.do(showID=${entry.value})}">
+
+                    </div>
+
+
+
+                </td>
+
+
+            </tr>
+
+        </table>
+
+         </tr>
+    <!--</c:forEach>-->
+
+</div>
+
+</body>
+
+</html>

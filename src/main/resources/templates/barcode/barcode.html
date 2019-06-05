@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<!--<script src="/static/js/jquery.min.js"></script>-->
+<!--<script type="text/javascript" src="/static/lib/jquery/1.9.1/jquery.min.js"></script>-->
+
+<!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
+<!--<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="Content-language" content="zh-CN"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="applicable-device" content="pc">
+
+<script type="text/javascript" src="/static/1.9.1/jquery.js"></script>
+<script type="text/javascript" src="/static/jquery-ui-1.12.1/jquery-ui.js"></script>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="pragma" content="no-cache">
+
+    <meta http-equiv="cache-control" content="no-cache">
+
+    <meta http-equiv="expires" content="0">
+
+    <title></title>
+
+</head>
+
+<iframe id="iframePrintEWM" frameborder="0" width="0" height="0"></iframe>
+
+<body>
+
+<div> 1.二维码预览</br>
+
+    2.二维码打印
+
+</div></br>
+
+</br></br>
+
+<hr>
+
+</br>
+
+<input type="button" id ="showQRList" name="showQRList" value="二维码预览" onclick="showQRList()"/>
+
+<a href="/qrPrint/showList.do">"二维码预览"</a>
+
+<div id='divDialog'></div>
+
+<div id='divPrintDialog'></div>
+
+</body>
+
+<script type="text/javascript">
+
+    var height = $("body").height();
+
+    var width = $("body").width();
+
+
+
+    //二维码预览
+
+    function showQRList(){
+       // alert("showQRList");
+
+        var url ="/qrPrint/showList.do";
+
+        $("#divDialog").dialog({
+
+            title:"预览",
+
+            width:260,
+
+            height:500,
+
+            top:(height-500)/2,
+
+            left:(width-260)/2,
+
+            href:url,
+
+            cache:false,
+
+            closed:false,
+
+            modal:true
+
+        });
+
+    }
+
+
+
+    //二维码打印
+
+    function printEWM(ids){
+
+        $('#divDialog').window('close');
+
+        var url = '/qrPrint/printEWM.do?ids='+ids;
+
+        $('#iframePrintEWM').attr("src", url);
+
+    }
+
+</script>
+
+</html>
