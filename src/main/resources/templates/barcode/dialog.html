@@ -46,7 +46,6 @@
 
 <input type="button" id ="showQRList" name="showQRList" value="二维码预览" onclick="showQRList()"/>
 
-<a href="/qrPrint/showList.do">"二维码预览"</a>
 
 <div id='divDialog'></div>
 
@@ -65,9 +64,9 @@
     //二维码预览
 
     function showQRList(){
-       // alert("showQRList");
+        // alert("showQRList");
 
-       // var url ="localhost:8080/qrPrint/showList.do";
+        // var url ="localhost:8080/qrPrint/showList.do";
 
         $("#divDialog").dialog({
 
@@ -94,18 +93,6 @@
     }
 
 
-
-    //二维码打印
-
-    function printEWM(ids){
-
-        $('#divDialog').window('close');
-
-        var url = '/qrPrint/printEWM.do?ids='+ids;
-
-        $('#iframePrintEWM').attr("src", url);
-
-    }
 
 </script>
 
