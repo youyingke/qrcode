@@ -32,7 +32,7 @@
 
 <body>
 
-<div> 1.二维码预览</br>
+<div> 1.测试模板引擎</br>
 
     2.二维码打印
 
@@ -59,7 +59,18 @@
 
     var width = $("body").width();
 
-
+    var ceshi= "[[${ids}]]";
+    alert(ceshi);
+//    var a;
+//    a=[[${ids}]];
+  //  alert([[${ids}]]);
+    var list_i=new Array();
+       list_i = [[${list_i}]];
+       alert(list_i.length);
+    for(var i=0;i<list_i.length;i++)
+    {
+        alert(list_i[i]);
+    }
 
     //二维码预览
 

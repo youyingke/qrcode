@@ -13,6 +13,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -188,6 +189,31 @@ public class WebPrintController {
     }
 
 
+
+    @RequestMapping("/getList")
+    public String   getList( Model model,HttpServletRequest request)
+    {
+
+       List<Integer> list_i=new ArrayList<>();
+        list_i.add(123);
+
+        list_i.add(456);
+
+        list_i.add(789);
+
+        String ids = "测试模板引擎获取数值";
+
+        model.addAttribute("ids", ids);
+        model.addAttribute("list_i",list_i);
+        return "/barcode/dialog";
+    }
+    @RequestMapping("/opendialog")
+    public String   opendialog( Model model,HttpServletRequest request)
+    {
+
+
+        return "/barcode/opendialog";
+    }
 
 
 

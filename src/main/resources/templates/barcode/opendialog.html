@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript" src="/static/1.9.1/jquery.js"></script>
+<script type="text/javascript" src="/static/jquery-ui-1.12.1/jquery-ui.js"></script>
+
+<SCRIPT type="text/javascript">
+
+//    function showQRList(){
+//
+//        //制定某个div的id 将其作为 Dialog
+//
+//        $('#helpdialog').dialog({
+//
+//            //是否创建就打开对话框，也就是是否页面一打开就显示对话框
+//
+//            autoOpen: false,
+//
+//
+//
+//            /*是否需要解决无法覆盖IE6 select 元素无法被覆盖的bug
+//
+//             就是在IE6下  div无法覆盖<select></select> 是否使用那该属性解决
+//
+//             */
+//
+//            bgiframe:true,
+//
+//
+//
+//            //设置对话框宽度
+//
+//            width: 600,
+//
+//
+//
+//            //设置对话框高度
+//
+//            height: 260,
+//
+//
+//
+//            /*
+//
+//             设置对话框底部的按钮
+//
+//             */
+//
+//            buttons: {
+//
+//                "确定": function() {
+//
+//                    //单击按钮后的回调函数，就是按钮被单击后的响应事件
+//
+//                    $(this).dialog("close");
+//
+//                }
+//
+//                /*
+//
+//                 "取消": function() {
+//
+//                 $(this).dialog("close");
+//
+//                 }
+//
+//                 */
+//
+//            },
+//
+//
+//
+//            /*
+//
+//             是否为对话框添加ESC快捷键
+//
+//             */
+//
+//            //closeOnEscape: false,
+//
+//
+//
+//            //对话框是否可以被拖动
+//
+//            draggable:false,
+//
+//
+//
+//            //打开对话框时是否使用特效
+//
+//            show:"slide",
+//
+//            //关闭对话框时是否使用特效动画
+//
+//            hide: "slide",
+//
+//
+//
+//            //是否可以调整对话框的大小
+//
+//            resizable:false,
+//
+//
+//
+//            //调整对话框的高度和宽度极限值(当resizable:true时)
+//
+//            //maxHeight:520
+//
+//            //maxWidth:620
+//
+//            //minHeight:320
+//
+//            //minWidth:220
+//
+//
+//
+//            //是否为模态窗口，设置为 true 时，页面上其它元素将被覆盖且无法响应用户操作。也就是无法再主界面上进行其他操作
+//
+//            modal:true,
+//
+//
+//
+//            //是否可覆盖其它对话框
+//
+//            //stack:false
+//
+//
+//
+//            //对话框标题(也可以再div的title上进行设置)
+//
+//            title:"请登陆"
+//
+//
+//
+//            //设置对话框 CSS z-index 值
+//
+//            //zIndex:50
+//
+//        });}
+
+var height = $("body").height();
+
+var width = $("body").width();
+
+var ceshi= "[[${ids}]]";
+alert(ceshi);
+//    var a;
+//    a=[[${ids}]];
+alert([[${ids}]]);
+//    var list_i=new Array();
+//       list_i = [[${list_i}]];
+//
+//    for(var i=0;i<list_i.size;i++)
+//    {
+//        alert(list_i[i]);
+//    }
+
+//二维码预览
+
+function showQRList(){
+    // alert("showQRList");
+
+    // var url ="localhost:8080/qrPrint/showList.do";
+
+    $("#helpdialog").dialog({
+
+        title:"预览",
+
+        width:260,
+
+        height:500,
+
+        top:(height-500)/2,
+
+        left:(width-260)/2,
+
+        cache:false,
+
+        closed:false,
+
+        modal:true,
+            buttons: {
+
+                "确定": function() {
+
+                    //单击按钮后的回调函数，就是按钮被单击后的响应事件
+
+                    $(this).dialog("close");
+
+                }
+
+                /*
+
+                 "取消": function() {
+
+                 $(this).dialog("close");
+
+                 }
+
+                 */
+
+            }
+
+    });
+
+}
+
+
+
+</SCRIPT>
+
+<BODY>
+
+<a href="#" id="dialog_link">从此处打开对话框</a></span>
+<input type="button" id ="showQRList" name="showQRList" value="打开预览" onclick="showQRList()"/>
+
+<div id="helpdialog" title="对话框的标题">
+
+    <p>对话框的内容</p>
+
+</div>
+
+</BODY>
+
+</html>
