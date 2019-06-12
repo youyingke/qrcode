@@ -53,6 +53,11 @@ public class WebPrintController {
     {
         return "/barcode/barcode";
     }
+    @RequestMapping("/api/index")
+    public String apiindex()
+    {
+        return "/barcode/index";
+    }
 
     @RequestMapping("/showList.do")
 
